@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Compare the Number of Starbucks Store",
+  "width": 800,
+  "height": 600,
+  "description": "A bar chart with highlighting on hover and selecting on click. (Inspired by Tableau's interaction style.)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/kuachunkit/FIT3179/main/top13_country_statrbucks_store.csv"
+  },
+  "selection": {
+    "highlight": {"type": "single", "empty": "none", "on": "mouseover"},
+    "select": {"type": "multi"}
+  },
+  "mark": {
+    "type": "bar",
+    "fill": "#ff9100e1",
+    "stroke": "black",
+    "cursor": "pointer"
+  },
+  "encoding": {
+    "x": {"field": "Country", "type": "ordinal"},
+    "y": {"field": "Store Count", "type": "quantitative"},
+    "fillOpacity": {
+      "condition": {"selection": "select", "value": 1},
+      "value": 0.3
+    },
+    "strokeWidth": {
+      "condition": [
+        {
+          "test": {
+            "and": [{"selection": "select"}, "length(data(\"select_store\"))"]
+          },
+          "value": 2
+        },
+        {"selection": "highlight", "value": 1}
+      ],
+      "value": 0
+    },
+    "tooltip": [
+      {"field": "Country", "type": "nominal", "title": "Country"},
+      {"field": "Store Count", "type": "quantitative", "title": "Store Count"}
+    ]
+  },
+  "config": {"scale": {"bandPaddingInner": 0.2}}
+}
