@@ -28,7 +28,7 @@
         "color": {
           "field": "count",
           "type": "quantitative",
-          "scale": {"scheme": "reds"}
+          "scale": {"scheme": "oranges"}
         }
       }
     }
