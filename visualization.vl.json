@@ -10,7 +10,7 @@
   },
   "transform": [
     {
-      "lookup": "properties.POSTAL",
+      "lookup": "properties.ISO_A2",
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/kuachunkit/FIT3179/main/starbucks_store.csv"
