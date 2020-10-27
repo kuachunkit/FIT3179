@@ -3,6 +3,7 @@
   "title": "Number of Starbucks Store in Different Country",
   "width": 800,
   "height": 600,
+  "background": "#ffffff",
   "data": {
     "url": "https://raw.githubusercontent.com/kuachunkit/FIT3179/main/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -26,7 +27,9 @@
     "color": {
       "field": "Store Count",
       "type": "quantitative",
-      "scale": {"type": "log"}
+      "scale": {"type": "log",
+                "range": ["#D3D3D3", "#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+      }
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
